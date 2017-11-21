@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ChannelX</string>
+
+    <string name="username_input_string">Username</string>
+    <string name="password_input_password">Password</string>
+    <string name="login_button_string">Login</string>
+    <string name="sign_up_button_string">Sign Up</string>
+
+
+    <string name="sign_up_activity_title_string">Sign Up</string>
+    <string name="name_input_string">Name</string>
+    <string name="surname_input_string">Surname</string>
+    <string name="phone_number_input_string">Phone Number</string>
+    <string name="cancel_button_string">Cancel</string>
+
+    <string name="title_activity_chat_list">ChatListActivity</string>
+
+</resources>
