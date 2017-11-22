@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.itugroup15.channelxAPI.APIClient;
@@ -20,6 +22,7 @@ public class ChatListActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "appSettings";
     APIController apiController;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class ChatListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        listView = findViewById(R.id.listView);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +57,13 @@ public class ChatListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetUserResponse> call, Response<GetUserResponse> response) {
                 Toast.makeText(getApplicationContext(), response.body().getContext().get(0).getRealsurname(), Toast.LENGTH_SHORT).show();
+
+                ArrayAdapter<GetUserResponse.Context> arrayAdapter = new ArrayAdapter<GetUserResponse.Context>(
+                        getApplicationContext(),
+                        android.R.layout.simple_list_item_1,
+                        response.body().getContext() );
+
+                listView.setAdapter(arrayAdapter);
             }
 
             @Override
