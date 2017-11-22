@@ -1,5 +1,6 @@
 package com.itugroup15.channelx;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -100,6 +101,21 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickSignUpButton(View view) {
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ( requestCode == 1 && resultCode == Activity.RESULT_OK ) {
+            EditText username = findViewById(R.id.inputUsername);
+            EditText password = findViewById(R.id.inputPassword);
+
+            username.setText(data.getStringExtra("username"));
+            password.setText(data.getStringExtra("password"));
+
+            onClickLoginButton(findViewById(android.R.id.content));
+        }
     }
 }
