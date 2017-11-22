@@ -1,11 +1,15 @@
 package com.itugroup15.channelx;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -21,6 +25,7 @@ import retrofit2.Response;
 public class ChatListActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "appSettings";
+    SharedPreferences settings;
     APIController apiController;
     ListView listView;
 
@@ -28,28 +33,26 @@ public class ChatListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         listView = findViewById(R.id.listView);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();
-                SharedPreferences settings = getSharedPreferences("appSettings", 0);
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putBoolean("loggedIn", false);
                 editor.apply();
             }
         });
 
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String authToken = settings.getString("authToken", "");
-
 
         apiController = APIClient.getClient().create(APIController.class);
         Call<GetUserResponse> call = apiController.getUsers(authToken);
@@ -71,10 +74,30 @@ public class ChatListActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_chat_list_menu, menu);
+        return true;
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                return true;
+            case R.id.action_logout:
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("loggedIn", false);
+                editor.apply();
+                Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
+                overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

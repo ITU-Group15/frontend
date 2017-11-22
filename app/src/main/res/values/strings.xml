@@ -15,4 +15,7 @@
 
     <string name="title_activity_chat_list">ChatListActivity</string>
 
+    <string name="app_bar_search_string">Search</string>
+    <string name="app_bar_log_off_string">Logout</string>
+
 </resources>
