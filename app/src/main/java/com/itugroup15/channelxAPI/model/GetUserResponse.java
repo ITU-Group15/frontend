@@ -1,13 +1,9 @@
-package com.itugroup15.channelx;
+package com.itugroup15.channelxAPI.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-/**
- * Created by aherka on 22/11/2017.
- */
 
 public class GetUserResponse {
 
