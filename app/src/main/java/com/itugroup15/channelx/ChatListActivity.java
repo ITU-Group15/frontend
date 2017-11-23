@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -44,11 +45,8 @@ public class ChatListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "This button will ad new channel", Snackbar.LENGTH_LONG).show();
                 //        .setAction("Action", null).show();
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putBoolean("loggedIn", false);
-                editor.apply();
             }
         });
 
