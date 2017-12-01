@@ -1,6 +1,5 @@
 package com.itugroup15.channelx;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,31 +32,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         findViewById(R.id.progressBar).setVisibility(View.GONE);
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        boolean loggedIn = settings.getBoolean("loggedIn", false);
-
-        if (loggedIn) {
-            finish();
-            Intent intent = new Intent(LoginActivity.this, ChatListActivity.class);
-            startActivity(intent);
-        }
     }
 
-    public void onClickLoginButton(View view) {
-
+    @SuppressWarnings("ConstantConditions")
+    public void onLoginButtonClicked(View view) {
         /* Hides software keyboard */
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputManager != null)
-        inputManager.hideSoftInputFromWindow((null == getCurrentFocus()) ? null :
-                getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            inputManager.hideSoftInputFromWindow((null == getCurrentFocus()) ? null :
+                    getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         /* Hides software keyboard */
 
-        EditText username = findViewById(R.id.inputUsername);
-        EditText password = findViewById(R.id.inputPassword);
+        EditText email = findViewById(R.id.emailInput);
+        EditText password = findViewById(R.id.passwordInput);
 
-        final Login login = new Login(username.getText().toString(), password.getText().toString());
+        final Login login = new Login(
+                email.getText().toString(),
+                password.getText().toString());
 
         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
 
@@ -98,12 +90,19 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void onClickSignUpButton(View view) {
-        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+    public void onCancelButtonClicked(View view) {
+        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
         overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
-        startActivityForResult(intent, 1);
+        finish();
+        startActivity(intent);
     }
 
+    public void onForgotPasswordClicked(View view) {
+        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+        overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
+        startActivity(intent);
+    }
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -117,5 +116,5 @@ public class LoginActivity extends AppCompatActivity {
 
             onClickLoginButton(findViewById(android.R.id.content));
         }
-    }
+    }*/
 }

@@ -11,22 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/LoginActivityTheme">
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/login_activity_title">
+        </activity>
+
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/sign_up_activity_title_string" />
+            android:label="@string/sign_up_activity_title" />
+
         <activity
             android:name=".ChatListActivity"
-            android:label="@string/title_activity_chat_list"
+            android:label="@string/chat_list_activity_title"
             android:theme="@style/AppTheme.NoActionBar" />
-    </application>
 
+    </application>
 </manifest>
