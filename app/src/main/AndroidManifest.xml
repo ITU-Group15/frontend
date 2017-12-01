@@ -25,7 +25,8 @@
             android:label="@string/login_activity_title" />
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/sign_up_activity_title" />
+            android:label="@string/sign_up_activity_title"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ChatListActivity"
             android:label="@string/chat_list_activity_title"
