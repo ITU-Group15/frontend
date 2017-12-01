@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itugroup15.channelxAPI.APIClient;
@@ -32,6 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         findViewById(R.id.progressBar).setVisibility(View.GONE);
+
+        boolean forgotPass = getIntent().getBooleanExtra("forgotPass", false);
+        if (forgotPass) {
+
+            Snackbar.make(findViewById(R.id.loginActivityLayout),
+                    "New password is sent to your mail", Snackbar.LENGTH_LONG).show();
+        }
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -97,8 +107,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onForgotPasswordClicked(View view) {
-        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+    public void onForgotPasswordButtonClicked(View view) {
+        Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
         overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
         startActivity(intent);
     }
