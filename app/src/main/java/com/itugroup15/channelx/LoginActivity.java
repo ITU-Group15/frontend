@@ -7,11 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itugroup15.channelxAPI.APIClient;
@@ -36,15 +34,28 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         findViewById(R.id.progressBar).setVisibility(View.GONE);
 
-        boolean forgotPass = getIntent().getBooleanExtra("forgotPass", false);
-        if (forgotPass) {
 
+        Intent intent = getIntent();
+
+        /* If activity started from forgot password activity */
+        if (intent.getBooleanExtra("forgotPass", false)) {
             Snackbar.make(findViewById(R.id.loginActivityLayout),
                     "New password is sent to your mail", Snackbar.LENGTH_LONG).show();
         }
+
+        /* If activity started from sign up activity */
+        else if (intent.getBooleanExtra("signedUp", false)) {
+            EditText username = findViewById(R.id.emailInput);
+            EditText password = findViewById(R.id.passwordInput);
+
+            username.setText(intent.getStringExtra("email"));
+            password.setText(intent.getStringExtra("password"));
+
+            /* Call on click function to directly login user */
+            onLoginButtonClicked(findViewById(android.R.id.content));
+        }
     }
 
-    @SuppressWarnings("ConstantConditions")
     public void onLoginButtonClicked(View view) {
         /* Hides software keyboard */
         InputMethodManager inputManager = (InputMethodManager)
@@ -63,10 +74,12 @@ public class LoginActivity extends AppCompatActivity {
 
         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
 
+        /* API call*/
         apiController = APIClient.getClient().create(APIController.class);
         Call<LoginResponse> call = apiController.login(login);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
+            @SuppressWarnings("ConstantConditions")
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 findViewById(R.id.progressBar).setVisibility(View.GONE);
                 if (response.isSuccessful()) {
@@ -103,8 +116,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onCancelButtonClicked(View view) {
         Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
         overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
-        finish();
         startActivity(intent);
+        finish();
     }
 
     public void onForgotPasswordButtonClicked(View view) {
@@ -112,19 +125,4 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
         startActivity(intent);
     }
-    /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if ( requestCode == 1 && resultCode == Activity.RESULT_OK ) {
-            EditText username = findViewById(R.id.inputUsername);
-            EditText password = findViewById(R.id.inputPassword);
-
-            username.setText(data.getStringExtra("username"));
-            password.setText(data.getStringExtra("password"));
-
-            onClickLoginButton(findViewById(android.R.id.content));
-        }
-    }*/
 }
