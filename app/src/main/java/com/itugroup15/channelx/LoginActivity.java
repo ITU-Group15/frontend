@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("authToken", response.body().getContext().getJwtToken());
                     editor.apply();
 
-                    Intent intent = new Intent(getApplicationContext(), ChatListActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ChannelListActivity.class);
                     intent.putExtra("USER_NAME", login.getUsername());
                     overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
                     startActivity(intent);

@@ -30,7 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         if (loggedIn) {
             finish();
-            Intent intent = new Intent(WelcomeActivity.this, ChatListActivity.class);
+            Intent intent = new Intent(WelcomeActivity.this, ChannelListActivity.class);
             startActivity(intent);
         }
         /*Check if logged in*/

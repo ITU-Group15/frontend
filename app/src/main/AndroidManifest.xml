@@ -37,8 +37,8 @@
             android:label="@string/sign_up_activity_title"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".ChatListActivity"
-            android:label="@string/chat_list_activity_title"
+            android:name=".ChannelListActivity"
+            android:label="@string/channel_list_activity_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ForgotPasswordActivity"
