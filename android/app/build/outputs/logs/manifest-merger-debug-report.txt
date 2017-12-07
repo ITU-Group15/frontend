@@ -1,0 +1,298 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hakverir/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/93d05c4c0960c0147615e22c15afb859/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:17:1-31:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/b06ea22ff8f0ceeeae701599f13264d1/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/c942940622aaa59e761012e43047e233/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e5c9ddbbcba43b279de85473e6330b60/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/c71eee7853982154fe9cb2055351b618/AndroidManifest.xml:1:1-4:12
+MERGED from [org.webkit:android-jsc:r174650] /home/hakverir/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/e3da1bfc4ce477d6d0c81aa7ed089c32/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:drawee:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/58e98359a7a07cd61bc0540c95fb0994/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/e964868eb3489410c6e8932be042f645/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/11ff227fb8732c1568b1c7d4b8a5a4ef/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/37102f89df18a192ef4e534996760cd0/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:17:1-30:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12
+	package
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:3:5-22
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:8:5-77
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:8:22-75
+uses-sdk
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:10:5-12:41
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hakverir/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/93d05c4c0960c0147615e22c15afb859/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hakverir/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/93d05c4c0960c0147615e22c15afb859/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:21:5-23:58
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/b06ea22ff8f0ceeeae701599f13264d1/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/b06ea22ff8f0ceeeae701599f13264d1/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/c942940622aaa59e761012e43047e233/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/c942940622aaa59e761012e43047e233/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e5c9ddbbcba43b279de85473e6330b60/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e5c9ddbbcba43b279de85473e6330b60/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/c71eee7853982154fe9cb2055351b618/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/c71eee7853982154fe9cb2055351b618/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.fresco:drawee:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/58e98359a7a07cd61bc0540c95fb0994/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/58e98359a7a07cd61bc0540c95fb0994/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/e964868eb3489410c6e8932be042f645/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/e964868eb3489410c6e8932be042f645/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/11ff227fb8732c1568b1c7d4b8a5a4ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/11ff227fb8732c1568b1c7d4b8a5a4ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/37102f89df18a192ef4e534996760cd0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/37102f89df18a192ef4e534996760cd0/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:20:5-22:41
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:10:5-12:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:12:9-38
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:11:9-35
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml
+application
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:14:5-61:19
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.50.4] /home/hakverir/.gradle/caches/transforms-1/files-1.1/react-native-0.50.4.aar/45f5b4fb8719bab8ce0f2479ae784c98/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hakverir/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/93d05c4c0960c0147615e22c15afb859/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hakverir/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/93d05c4c0960c0147615e22c15afb859/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:25:5-29:19
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/c71eee7853982154fe9cb2055351b618/AndroidManifest.xml:3:3-17
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/c71eee7853982154fe9cb2055351b618/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/hakverir/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/e3da1bfc4ce477d6d0c81aa7ed089c32/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/hakverir/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/e3da1bfc4ce477d6d0c81aa7ed089c32/AndroidManifest.xml:2:3-17
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:24:5-28:19
+	android:supportsRtl
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:20:7-33
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:17:7-39
+	android:roundIcon
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:19:7-52
+	android:icon
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:18:7-41
+	android:allowBackup
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:16:7-34
+	android:theme
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:21:7-38
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:15:7-38
+activity#com.chx.MainActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:22:7-31:18
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:24:9-41
+	android:windowSoftInputMode
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:26:9-48
+	android:configChanges
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:25:9-79
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:23:9-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:27:9-30:25
+action#android.intent.action.MAIN
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:28:13-65
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:28:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:29:13-73
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:29:23-70
+activity#com.chx.channelx.WelcomeActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:32:9-45:20
+	android:theme
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:34:13-56
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:33:13-53
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:36:13-43:29
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:36:28-60
+action#android.intent.action.VIEW
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:37:17-69
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:37:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:39:27-75
+data
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:40:17-42:54
+	android:host
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:41:21-61
+	android:scheme
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:40:23-44
+	android:pathPrefix
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:42:21-51
+activity#com.chx.channelx.LoginActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:46:9-48:60
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:48:13-57
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:47:13-51
+activity#com.chx.channelx.SignUpActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:49:9-52:57
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:51:13-59
+	android:windowSoftInputMode
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:52:13-55
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:50:13-52
+activity#com.chx.channelx.ChannelListActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:53:9-56:59
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:55:13-64
+	android:theme
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:56:13-56
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:54:13-57
+activity#com.chx.channelx.ForgotPasswordActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:58:9-59:70
+	android:label
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:59:13-67
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:58:19-66
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:60:7-84
+	android:name
+		ADDED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:60:17-81
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/4018748dfd3c265114f2b35b932372aa/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:cardview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/2470abb75a8507c5776867f73658f4b5/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/aaff79cf6552f6d13a7d8843bce76202/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/1fac16e3e6f9df8a4a7adc1af8a2c231/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/e35edf1943937b0643594d8c205248e8/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/9b2f772347cdc80029bea86cbe069638/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ddf6a603748fdaf3fb8f5d42537d0d1a/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10783845ba3bf01ca651cca31e586183/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/8b43b4b49cb4de5b58819992bdc99785/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/b25bf443964ddc26fd7dcc6197285b1b/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/7220bf1a4a6e4a8331041c09e27c921b/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/74c4c3929b93092109d8a4ca589f6fd8/AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.1.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/4bc830ba35cc8b2d462c5fd78dc741fb/AndroidManifest.xml:27:13-51
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/hakverir/6._YY_ITU/CHANNELX_SOFTWARE/ChX/android/app/src/main/AndroidManifest.xml:2:1-63:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /home/hakverir/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/ee5d5bf097dea1ded2b7dc8b31fe6fe9/AndroidManifest.xml:26:13-58
