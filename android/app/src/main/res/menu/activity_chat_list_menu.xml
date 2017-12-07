@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white_48dp"
+        android:title="@string/app_bar_search_string"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_logout"
+        android:title="@string/app_bar_log_off_string"
+        app:showAsAction="never"/>
+
+</menu>

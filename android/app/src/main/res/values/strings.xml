@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ChX</string>
+
+    <string name="login_activity_title">Login</string>
+    <string name="sign_up_activity_title">Sign Up</string>
+    <string name="channel_list_activity_title">Channels</string>
+    <string name="forgot_password_activity_title">Forgot Password</string>
+
+    <string name="login_button">LOGIN</string>
+    <string name="sign_up_button">SIGN UP</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="forgot_password_button">Forgot Password</string>
+    <string name="send_button">Send</string>
+
+    <string name="password_input_hint">Password</string>
+    <string name="email_input_hint">Email</string>
+    <string name="name_input_hint">Name</string>
+    <string name="surname_input_hint">Surname</string>
+    <string name="phone_number_input_hint">Phone Number</string>
+
+    <string name="forgot_password_info_text">Enter your email</string>
+
+
+    <string name="animated_logo_desc">ChannelX</string>
+    <string name="chat_status_desc">Chat status</string>
+
+
+    <string name="app_bar_search_string">Search</string>
+    <string name="app_bar_log_off_string">Logout</string>
+</resources>
