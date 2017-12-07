@@ -1,0 +1,3 @@
+rootProject.name = 'ChX'
+
+include ':app'
