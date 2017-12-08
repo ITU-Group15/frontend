@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +48,8 @@ public class ChannelListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        startActivity(ChatActivity.getIntent(this));
+
         settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         adapter = new ChannelAdapter(null, this);
@@ -68,12 +71,21 @@ public class ChannelListActivity extends AppCompatActivity {
         call.enqueue(new Callback<GetUserResponse>() {
             @Override
             public void onResponse(@NonNull Call<GetUserResponse> call, @NonNull Response<GetUserResponse> response) {
-                adapter.swap(response.body().getContext());
+                //response.body null - Token failure
+                if(response.body() != null){
+                    adapter.swap(response.body().getContext());
+                }
+                else{
+                    Intent intent = new Intent(ChannelListActivity.this, LoginActivity.class);
+                    overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             @Override
             public void onFailure(@NonNull Call<GetUserResponse> call, @NonNull Throwable t) {
-
+                //connection - internal error erro
             }
         });
     }

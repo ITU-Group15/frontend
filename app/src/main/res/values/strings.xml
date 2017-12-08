@@ -26,6 +26,16 @@
 
 
     <string name="app_bar_search_string">Search</string>
+    <string name="app_bar_edit_string">Edit</string>
+    <string name="app_bar_info_string">Info</string>
     <string name="app_bar_log_off_string">Logout</string>
+
+
+    <string name="sharedpref_email">user_email</string>
+
+    <string name="img_desc_send_button">SEND</string>
+
+
+
 
 </resources>

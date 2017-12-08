@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         /* Hides software keyboard */
 
-        EditText email = findViewById(R.id.emailInput);
+        final EditText email = findViewById(R.id.emailInput);
         EditText password = findViewById(R.id.passwordInput);
 
         final Login login = new Login(
@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putBoolean("loggedIn", true);
                     editor.putString("authToken", response.body().getContext().getJwtToken());
+                    editor.putString(getString(R.string.sharedpref_email), email.getText().toString());
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), ChannelListActivity.class);
