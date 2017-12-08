@@ -25,7 +25,9 @@
     <string name="chat_status_desc">Chat status</string>
 
 
-    <string name="app_bar_search_string">Search</string>
-    <string name="app_bar_log_off_string">Logout</string>
+    <string name="app_bar_search">Search</string>
+    <string name="app_bar_account">Logout</string>
+
+    <string name="action_item_info">Info</string>
 
 </resources>
