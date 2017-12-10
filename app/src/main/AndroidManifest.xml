@@ -51,6 +51,8 @@
             android:name=".ChatActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
+
 
 </manifest>

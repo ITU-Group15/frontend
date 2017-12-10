@@ -48,7 +48,7 @@ public class ChannelListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        startActivity(ChatActivity.getIntent(this));
+        startActivity(ChatActivity.getIntent(this,6,1,1));
 
         settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 

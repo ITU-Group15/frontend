@@ -18,4 +18,16 @@ public interface APIController {
 
     @GET("getusers")
     Call<GetUserResponse> getUsers(@Header("Authorization") String authHeader);
+
+    //Burdan Aşağısını ekledim
+    @POST("send")
+    Call<MessageResponse> sendMessage(
+             @Header("Authorization") String authHeader
+            ,@Body MessageRequest messageRequest);
+
+    @POST("getmessages")
+    Call<MessageResponse> getMessages(
+            @Header("Authorization") String authHeader
+            ,@Body MessageRequest messageRequest);
+
 }

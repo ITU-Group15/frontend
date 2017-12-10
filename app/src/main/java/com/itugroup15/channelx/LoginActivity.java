@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), ChannelListActivity.class);
-                    intent.putExtra("USER_NAME", login.getUsername());
+                    intent.putExtra(getString(R.string.sharedpref_email), login.getUsername());
                     overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
                     startActivity(intent);
                     finish();
