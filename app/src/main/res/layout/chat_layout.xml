@@ -4,45 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    android:clickable="true"
     android:elevation="0dp"
-    android:focusable="true">
+    android:backgroundTint="@color/cardview_light_background">
 
     <LinearLayout
         android:id="@+id/channelCardLayout"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="48dp"> <!-- TODO If message is too long increase this programmatically -->
+        android:layout_height="match_parent"> <!-- TODO If message is too long increase this programmatically -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="0.7">
+            android:layout_weight="0.4">
             <TextView
                 android:id="@+id/chat_list_layout_senderemail"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/secondaryColor"
                 android:layout_weight="0.5"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:text="" />
             <TextView
                 android:id="@+id/chat_list_layout_time"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/secondaryLightColor"
                 android:layout_weight="0.5"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:text="" />
         </LinearLayout>
         <TextView
             android:id="@+id/chat_list_layout_message"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="0.3"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="6dp"
+            android:elegantTextHeight="true"
+            android:layout_weight="0.6"
             android:textSize="16sp"
             android:text="" />
     </LinearLayout>

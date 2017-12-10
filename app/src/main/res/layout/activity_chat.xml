@@ -45,7 +45,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="bottom"
@@ -55,14 +55,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <EditText
-            android:id="@+id/chatTextInputET"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/chatTextInputLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.88"
-            android:elegantTextHeight="true"
+            android:layout_weight="0.88">
+
+            <android.support.design.widget.TextInputEditText
+            android:id="@+id/chatTextInputET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:inputType="textMultiLine"
             android:text="" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <View
             android:id="@+id/sendMessage"
@@ -74,6 +80,7 @@
             android:focusableInTouchMode="true"
             android:onClick="sendMessage"
             android:background="?attr/selectableItemBackground"
+            android:foreground="?android:selectableItemBackground"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.12"

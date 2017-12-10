@@ -6,6 +6,7 @@
     <string name="channel_list_activity_title">Channels</string>
     <string name="forgot_password_activity_title">Forgot Password</string>
 
+
     <string name="login_button">Login</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="cancel_button">Cancel</string>
@@ -30,10 +31,24 @@
     <string name="app_bar_info_string">Info</string>
     <string name="app_bar_log_off_string">Logout</string>
 
+    <!-- Eklediklerim -->
 
     <string name="sharedpref_email">user_email</string>
 
+    <string name="intent_user_id">intent_user_id</string>
+    <string name="intent_channel_id">intent_channel_id</string>
+    <string name="channel_owner_id">channel_owner_id</string>
+
+
     <string name="img_desc_send_button">SEND</string>
+
+    <string name="message_service_label">ChannelX</string>
+
+    <string name="adaptor_messages_data">AdaptorMessagesData</string>
+
+    <string name="toast_connection_error">Connection Error</string>
+
+
 
 
 
