@@ -236,8 +236,8 @@ public class ChannelListActivity extends AppCompatActivity {
                     String weekDay = weekDayFormat.format(currentTime);
 
                     int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
-                    int endMinutes = availableTimeEnd.getHours() * 60 + availableTimeEnd.getMinutes();
-                    int startMinutes = availableTimeStart.getHours() * 60 + availableTimeStart.getMinutes();
+                    int endMinutes = (availableTimeEnd.getHours() + 3 ) * 60 + availableTimeEnd.getMinutes();
+                    int startMinutes = (availableTimeStart.getHours() + 3 ) * 60 + availableTimeStart.getMinutes();
 
                     if (channel.getAvailableDays() == null || channel.getAvailableDays().contains(weekDay)) {
                         if (currentMinutes < endMinutes && currentMinutes > startMinutes) {
@@ -330,8 +330,8 @@ public class ChannelListActivity extends AppCompatActivity {
                                 String weekDay = weekDayFormat.format(currentTime);
 
                                 int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
-                                int endMinutes = availableTimeEnd.getHours() * 60 + availableTimeEnd.getMinutes();
-                                int startMinutes = availableTimeStart.getHours() * 60 + availableTimeStart.getMinutes();
+                                int endMinutes = (availableTimeEnd.getHours() + 3 ) * 60 + availableTimeEnd.getMinutes();
+                                int startMinutes = (availableTimeStart.getHours() + 3 ) * 60 + availableTimeStart.getMinutes();
 
                                 if (selectedChannel.getAvailableDays() == null || selectedChannel.getAvailableDays().contains(weekDay)) {
                                     if (currentMinutes < endMinutes && currentMinutes > startMinutes) {

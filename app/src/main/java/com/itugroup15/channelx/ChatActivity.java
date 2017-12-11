@@ -141,8 +141,7 @@ public class ChatActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<MessageResponse> call, Throwable t) {
-                Toast.makeText(adapter.getContext(), getString(R.string.toast_connection_error),
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
         chatTextInput.setText("");
@@ -172,8 +171,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<MessageResponse> call, Throwable t) {
-                        Toast.makeText(adapter.getContext(), getString(R.string.toast_connection_error),
-                                Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 handler.postDelayed(this, MESSAGE_FETCH_INTERVAL_SEC*1000);
@@ -216,7 +214,7 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ChatActivity.ChannelAdapter.ViewHolder holder, int position) {
-            holder.senderEmail.setText(Integer.toString(messages.get(position).getUserID())); // User id to user nickname ??
+            holder.senderEmail.setText(messages.get(position).getNickname()); // User id to user nickname ??
             holder.message.setText(messages.get(position).getMessage());
             String humenReadableTime = "";
             String time = messages.get(position).getCreatedAt();

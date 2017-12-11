@@ -44,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         final EditText email = findViewById(R.id.emailInput);
         final EditText password = findViewById(R.id.passwordInput);
+        final EditText nickname = findViewById(R.id.nicknameInput);
         final EditText name = findViewById(R.id.nameInput);
         final EditText surname = findViewById(R.id.surnameInput);
         final EditText phone = findViewById(R.id.phoneNumberInput);
@@ -51,6 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         final User user = new User(
                 email.getText().toString(),
                 password.getText().toString(),
+                nickname.getText().toString(),
                 name.getText().toString(),
                 surname.getText().toString(),
                 phone.getText().toString());

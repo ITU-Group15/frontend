@@ -38,10 +38,21 @@ public class MessageResponse {
         @SerializedName("message")
         @Expose
         private String message;
-
+        @SerializedName("nickname")
+        @Expose
+        private String nickname;
+/*
         public Context(Integer userID, String message) {
             this.userID = userID;
             this.message = message;
+        }*/
+
+        public String getNickname() {
+            return nickname;
+        }
+
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
         }
 
         public Integer getID() {

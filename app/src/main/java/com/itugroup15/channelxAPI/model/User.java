@@ -16,6 +16,9 @@ public class User {
     @SerializedName("username")
     @Expose
     private String username;
+    @SerializedName("nickname")
+    @Expose
+    private String nickname;
     @SerializedName("password")
     @Expose
     private String password;
@@ -29,12 +32,21 @@ public class User {
     @Expose
     private String realsurname;
 
-    public User(String username, String password, String realname, String realsurname, String phone) {
+    public User(String username, String password, String nickname, String realname, String realsurname, String phone) {
         this.username = username;
         this.password = password;
+        this.nickname = nickname;
         this.realname = realname;
         this.realsurname = realsurname;
         this.phone = phone;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public int getUserID() {
