@@ -6,7 +6,6 @@
     <string name="channel_list_activity_title">Channels</string>
     <string name="forgot_password_activity_title">Forgot Password</string>
 
-
     <string name="login_button">Login</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="cancel_button">Cancel</string>
@@ -26,6 +25,10 @@
     <string name="chat_status_desc">Chat status</string>
 
 
+    <string name="app_bar_search">Search</string>
+    <string name="app_bar_account">Logout</string>
+
+    <string name="action_item_info">Info</string>
     <string name="app_bar_search_string">Search</string>
     <string name="app_bar_edit_string">Edit</string>
     <string name="app_bar_info_string">Info</string>
