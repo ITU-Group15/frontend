@@ -37,6 +37,8 @@ public class ChatActivity extends AppCompatActivity {
 
     private static final int MESSAGE_FETCH_INTERVAL_SEC = 1;
 
+    private final Handler handler = new Handler();
+
     private int user_id; // unused, TODO use to check whether creator
     private int channelID;
     private int userID;
@@ -147,7 +149,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void fetchMessages(){
-        final Handler handler = new Handler();
         final int flag =0;
         final Runnable runnableCR = new Runnable() {
             @Override
@@ -275,5 +276,10 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        handler.removeCallbacksAndMessages(null); // removes all callbacks
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out);
+        super.onBackPressed();
+    }
 }

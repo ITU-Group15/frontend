@@ -270,7 +270,9 @@ public class ChannelListActivity extends AppCompatActivity {
                             ((AppCompatActivity)view.getContext()).startSupportActionMode(actionModeCallbacks);
                         }
                         else {
-                            Log.i("TAS", String.valueOf(position));
+                            Channel selectedChannel = channels.get(position);
+                            startActivityForResult(ChatActivity.getIntent(context, selectedChannel.getChannelID()
+                                    , 0, selectedChannel.getOwnerID()),1);
                         }
                     }
                 });
