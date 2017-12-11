@@ -26,6 +26,7 @@ import com.itugroup15.channelxAPI.APIClient;
 import com.itugroup15.channelxAPI.APIController;
 import com.itugroup15.channelxAPI.model.Channel;
 import com.itugroup15.channelxAPI.model.GetChannelsResponse;
+import com.itugroup15.channelxAPI.model.JoinChannel;
 import com.itugroup15.channelxAPI.model.SearchQuery;
 
 import java.text.ParseException;
@@ -106,8 +107,10 @@ public class SearchResultsActivity extends AppCompatActivity {
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
     public class ChannelAdapter extends RecyclerView.Adapter<SearchResultsActivity.ChannelAdapter.ViewHolder> {
 
 
@@ -119,6 +122,7 @@ public class SearchResultsActivity extends AppCompatActivity {
             TextView channelNotificationBadge;
             ImageView channelStatus;
             RelativeLayout channelCardLayout;
+            int channelID;
 
 
 
@@ -129,10 +133,13 @@ public class SearchResultsActivity extends AppCompatActivity {
                 channelNotificationBadge = itemView.findViewById(R.id.channelNotificationBadge);
                 channelStatus = itemView.findViewById(R.id.channelStatus);
                 channelCardLayout = itemView.findViewById(R.id.channelCardLayout);
+                channelID = -1;
+
             }
 
             void update(final int position) {
                 Channel channel = channels.get(position);
+                channelID = channel.getChannelID();
                 if (channel.getChannelName() != null)
                     channelName.setText(channel.getChannelName());
                 else
@@ -180,11 +187,38 @@ public class SearchResultsActivity extends AppCompatActivity {
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // TODO join channel
+                        String authToken = settings.getString("authToken", "");
+
+                        JoinChannel joinChannel = new JoinChannel();
+                        joinChannel.setChannelID(channelID);
+
+                        apiController = APIClient.getClient().create(APIController.class);
+                        Call<GetChannelsResponse> call = apiController.joinChannel(authToken, joinChannel);
+
+                        call.enqueue(new Callback<GetChannelsResponse>() {
+                            @Override
+                            public void onResponse(Call<GetChannelsResponse> call, Response<GetChannelsResponse> response) {
+                                //
+                                Intent intent = new Intent(SearchResultsActivity.this, ChannelListActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailure(Call<GetChannelsResponse> call, Throwable t) {
+                                //Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(SearchResultsActivity.this, ChannelListActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                        });
                     }
                 });
             }
         }
+
+
 
         private List<Channel> channels;
         private Context context;
