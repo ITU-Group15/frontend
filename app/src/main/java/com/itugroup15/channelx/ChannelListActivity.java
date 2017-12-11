@@ -129,13 +129,18 @@ public class ChannelListActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.action_search:
-                Snackbar.make(findViewById(R.id.chat_list_layout), "This button will search for a channel", Snackbar.LENGTH_LONG).show();
+                searchView.setFocusable(true);
+                searchView.setIconified(false);
+                searchView.requestFocusFromTouch();
 
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String s) {
-                        Snackbar.make(findViewById(R.id.chat_list_layout), "yara", Snackbar.LENGTH_LONG).show();
+                        //nackbar.make(findViewById(R.id.chat_list_layout), "yara", Snackbar.LENGTH_LONG).show();
                         //intent.putExtra("q", searchView.getQuery());
+                        Intent intent1 = new Intent(ChannelListActivity.this, SearchResultsActivity.class);
+                        intent1.putExtra("query", searchView.getQuery().toString());
+                        startActivity(intent1);
                         return true;
                     }
 

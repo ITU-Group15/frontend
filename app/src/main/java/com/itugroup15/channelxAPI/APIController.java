@@ -22,6 +22,9 @@ public interface APIController {
     @GET("channels")
     Call<GetChannelsResponse> getChannels(@Header("Authorization") String authHeader);
 
+    @POST("search")
+    Call<GetChannelsResponse> searchChannels(@Header("Authorization") String authHeader, @Body SearchQuery channelName);
+
     //Burdan Aşağısını ekledim
     @POST("send")
     Call<MessageResponse> sendMessage(
