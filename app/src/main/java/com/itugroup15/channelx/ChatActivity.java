@@ -148,6 +148,7 @@ public class ChatActivity extends AppCompatActivity {
 
     public void fetchMessages(){
         final Handler handler = new Handler();
+        final int flag =0;
         final Runnable runnableCR = new Runnable() {
             @Override
             public void run() {
@@ -155,6 +156,7 @@ public class ChatActivity extends AppCompatActivity {
                         .getMessages(settings.getString("authToken", "")
                                 , new MessageRequest(channelID));
                 call.enqueue(new Callback<MessageResponse>() {
+
                     @Override
                     public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
                         try {
@@ -173,7 +175,6 @@ public class ChatActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
-
                 handler.postDelayed(this, MESSAGE_FETCH_INTERVAL_SEC*1000);
             }
         };
@@ -221,7 +222,7 @@ public class ChatActivity extends AppCompatActivity {
             int flag = 0;
             for(int i = 0; i < time.length(); i++){
                 if(flag > 0){
-                    if(flag == 3) break;
+                    if(flag == 2 && time.charAt(i) == ':') break;
                     if(time.charAt(i) == ':') flag++;
                     humenReadableTime += time.charAt(i);
                 }

@@ -73,11 +73,9 @@
         <View
             android:id="@+id/sendMessage"
             android:clickable="true"
-            android:focusable="true"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:focusableInTouchMode="true"
             android:onClick="sendMessage"
             android:background="?attr/selectableItemBackground"
             android:foreground="?android:selectableItemBackground"
@@ -85,7 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.12"
             android:contentDescription="@string/chat_status_desc"
-            />
+            android:focusable="true" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
