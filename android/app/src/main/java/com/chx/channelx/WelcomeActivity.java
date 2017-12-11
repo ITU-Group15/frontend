@@ -1,4 +1,4 @@
-package com.chx.channelx;
+package com.itugroup15.channelx;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.chx.R;
+import com.itugroup15.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

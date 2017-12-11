@@ -1,4 +1,4 @@
-package com.chx.channelx;
+package com.itugroup15.channelx;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.chx.R;
-import com.chx.channelxAPI.APIClient;
-import com.chx.channelxAPI.APIController;
-import com.chx.channelxAPI.model.Login;
-import com.chx.channelxAPI.model.LoginResponse;
+import com.itugroup15.R;
+import com.itugroup15.channelxAPI.APIClient;
+import com.itugroup15.channelxAPI.APIController;
+import com.itugroup15.channelxAPI.model.Login;
+import com.itugroup15.channelxAPI.model.LoginResponse;
 
 import org.json.JSONObject;
 
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         /* Hides software keyboard */
 
-        EditText email = findViewById(R.id.emailInput);
+        final EditText email = findViewById(R.id.emailInput);
         EditText password = findViewById(R.id.passwordInput);
 
         final Login login = new Login(
@@ -90,10 +90,11 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putBoolean("loggedIn", true);
                     editor.putString("authToken", response.body().getContext().getJwtToken());
+                    editor.putString(getString(R.string.sharedpref_email), email.getText().toString());
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), ChannelListActivity.class);
-                    intent.putExtra("USER_NAME", login.getUsername());
+                    intent.putExtra(getString(R.string.sharedpref_email), login.getUsername());
                     overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
                     startActivity(intent);
                     finish();

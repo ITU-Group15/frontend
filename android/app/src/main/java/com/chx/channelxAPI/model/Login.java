@@ -1,4 +1,4 @@
-package com.chx.channelxAPI.model;
+package com.itugroup15.channelxAPI.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.chx.channelx;
+package com.itugroup15.channelx;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,11 +10,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.chx.R;
-import com.chx.channelxAPI.APIClient;
-import com.chx.channelxAPI.APIController;
-import com.chx.channelxAPI.model.LoginResponse;
-import com.chx.channelxAPI.model.User;
+import com.itugroup15.R;
+import com.itugroup15.channelxAPI.APIClient;
+import com.itugroup15.channelxAPI.APIController;
+import com.itugroup15.channelxAPI.model.LoginResponse;
+import com.itugroup15.channelxAPI.model.User;
 
 import org.json.JSONObject;
 

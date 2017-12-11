@@ -1,4 +1,4 @@
-package com.chx.channelxAPI;
+package com.itugroup15.channelxAPI;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,7 +1,7 @@
-package com.chx.channelxAPI;
+package com.itugroup15.channelxAPI;
 
-import com.chx.channelxAPI.model.GetUserResponse;
-import com.chx.channelxAPI.model.*;
+import com.itugroup15.channelxAPI.model.GetUserResponse;
+import com.itugroup15.channelxAPI.model.*;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,4 +18,19 @@ public interface APIController {
 
     @GET("getusers")
     Call<GetUserResponse> getUsers(@Header("Authorization") String authHeader);
+
+    @GET("channels")
+    Call<GetChannelsResponse> getChannels(@Header("Authorization") String authHeader);
+
+    //Burdan Aşağısını ekledim
+    @POST("send")
+    Call<MessageResponse> sendMessage(
+             @Header("Authorization") String authHeader
+            ,@Body MessageRequest messageRequest);
+
+    @POST("getmessages")
+    Call<MessageResponse> getMessages(
+            @Header("Authorization") String authHeader
+            ,@Body MessageRequest messageRequest);
+
 }

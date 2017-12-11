@@ -1,11 +1,10 @@
 package com.itugroup15.channelxAPI.model;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class GetUserResponse {
+public class GetChannelsResponse {
 
     @SerializedName("message")
     @Expose
@@ -15,7 +14,7 @@ public class GetUserResponse {
     private int code;
     @SerializedName("context")
     @Expose
-    private List<User> users = null;
+    private List<Channel> channels = null;
 
     public String getMessage() {
         return message;
@@ -33,11 +32,11 @@ public class GetUserResponse {
         this.code = code;
     }
 
-    public List<User> getContext() {
-        return users;
+    public List<Channel> getContext() {
+        return channels;
     }
 
-    public void setContext(List<User> context) {
-        this.users = context;
+    public void setContext(List<Channel> channels) {
+        this.channels = channels;
     }
 }

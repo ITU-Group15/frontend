@@ -1,11 +1,11 @@
-package com.chx.channelx;
+package com.itugroup15.channelx;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.chx.R;
+import com.itugroup15.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
