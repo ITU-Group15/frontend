@@ -5,14 +5,20 @@ import {
   Text,
   View
 } from 'react-native';
-import bridgeBetweenAndroidAndReactNative from './ConnectToAndroid';
-import Profile from './src/pages/Profile';
+
+import ExportNative from './ExportNative';
 
 export default class App extends Component<{}> {
+
+    _on_create = () => {
+        ExportNative.connect();
+    }
+
+
   render() {
-    return (
-      //bridgeBetweenAndroidAndReactNative();
-      <Profile/>
+    return(
+        <View onLayout = { () => this._on_create() }>
+        </View>
     );
   }
 }

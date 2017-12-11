@@ -5,10 +5,12 @@ import {
   Text,
   View,
   Image,
-  KeyboardAvoidingView,
+  ScrollView,
   TouchableHighlight,
-  TextInput
+  TextInput,
+  DeviceEventEmitter
 } from 'react-native';
+import ExportNative from '../../ExportNative';
 
 export default class Profile extends Component<{}> {
 
@@ -19,113 +21,160 @@ export default class Profile extends Component<{}> {
         name: '',
         surname: '',
         phoneNum: '',
-        isSignUpSuccessful: false
     }
+
+    componentWillMount: function() {
+      DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event);
+    }
+
+    _changeUserData = () => {
+
+      fetch('https://channelbapd.herokuapp.com/profile', {
+              method: "POST",
+              headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                  'Authorization': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTI4MjkzNDksInVzZXJJRCI6MzV9.h0xMAKAJ_MI53KjvxQL7oVugccS-WPfJP5jT67G6aMCC94FEWa6XAfyiGcSmaGAQolWc5oRdwVUbf7oeD5GUtQ'
+              },
+              body: JSON.stringify({
+                  nickname: this.state.nickname,
+                  password: this.state.password,
+                  username: this.state.username,
+                  name: this.state.name,
+                  surname: this.state.surname,
+                  phoneNum: this.state.phoneNum
+              })
+          })
+          .then((res) => res.json())
+          .then((res) => {
+              if (res.code == 0){
+                ExportNative.show("Data updated successfully.", ExportNative.SHORT);
+              }
+              else
+                ExportNative.show(res.message, ExportNative.SHORT);
+          })
+          .catch((error) => {
+              ExportNative.show("There was an error while connecting to the server: ", ExportNative.SHORT);
+          });
+  }
+
+  _logout = () => {
+    ExportNative.logout();
+  }
+
+  _goBack = () => {
+    ExportNative.go_back_to_channel_list();
+  }
 
   render(){
     return(
-      <KeyboardAvoidingView behavior='padding' style={styles.container}>
-        <Image
-          style={{width: 50, height: 50}}
-          source={require("../img/user_icon.png")} />
+      <View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Nickname"
-            returnKeyType="next"
-            onSubmitEditing={() => this.emailInput.focus()}
-            placeholderTextColor= "rgba(255, 137, 130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(nickname) => this.setState({nickname})}
-          />
+        <View style={styles.header}>
+          <Text style= {{fontSize: 20, padding: 15, color: '#fff'}}>Profile</Text>
+        </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="E-mail"
-            returnKeyType="next"
-            onSubmitEditing={() => this.passwordInput.focus()}
-            ref={(input) => this.emailInput = input}
-            keyboardType="email-address"
-            placeholderTextColor= "rgba(255, 137, 130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(username) => this.setState({username})}
-          />
+        <ScrollView behavior='padding'>
+          <View style={styles.container}>
+            <Image
+              style={{width: 60, height: 60}}
+              source={require("../img/user_icon.png")} />
 
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            returnKeyType="next"
-            secureTextEntry={true}
-            onSubmitEditing={() => this.nameInput.focus()}
-            ref={(input) => this.passwordInput = input}
-            placeholderTextColor= "rgba(255, 137 ,130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(password) => this.setState({password})}
-          />
+              <TextInput
+                style={styles.input}
+                placeholder="Nickname"
+                returnKeyType="next"
+                onSubmitEditing={() => this.emailInput.focus()}
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(nickname) => this.setState({nickname})}
+              />
 
-          <TextInput
-            style={styles.input}
-            placeholder="Name"
-            returnKeyType="next"
-            onSubmitEditing={() => this.surnameInput.focus()}
-            ref={(input) => this.nameInput = input}
-            placeholderTextColor= "rgba(255, 137, 130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(name) => this.setState({name})}
-          />
+              <TextInput
+                style={styles.input}
+                placeholder="E-mail"
+                returnKeyType="next"
+                onSubmitEditing={() => this.passwordInput.focus()}
+                ref={(input) => this.emailInput = input}
+                keyboardType="email-address"
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(username) => this.setState({username})}
+              />
 
-          <TextInput
-            style={styles.input}
-            placeholder="Surname"
-            returnKeyType="next"
-            onSubmitEditing={() => this.phoneNumInput.focus()}
-            ref={(input) => this.surnameInput = input}
-            placeholderTextColor= "rgba(255, 137, 130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(surname) => this.setState({surname})}
-          />
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                returnKeyType="next"
+                secureTextEntry={true}
+                onSubmitEditing={() => this.nameInput.focus()}
+                ref={(input) => this.passwordInput = input}
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(password) => this.setState({password})}
+              />
 
-          <TextInput
-            style={styles.input}
-            placeholder="Phone Number"
-            returnKeyType="go"
-            ref={(input) => this.phoneNumInput = input}
-            keyboardType="numeric"
-            placeholderTextColor= "rgba(255, 137, 130, 0.7)"
-            blurOnSubmit= {true}
-            multiline= {false}
-            onChangeText={(phoneNum) => this.setState({phoneNum})}
-          />
+              <TextInput
+                style={styles.input}
+                placeholder="Name"
+                returnKeyType="next"
+                onSubmitEditing={() => this.surnameInput.focus()}
+                ref={(input) => this.nameInput = input}
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(name) => this.setState({name})}
+              />
 
-          <View style={styles.rowButton}>
-            <TouchableHighlight
-              //onPress={this._userSignUp}
-              style={styles.cancelButton}
-            >
-              <Text style={styles.buttonText} >CANCEL</Text>
-            </TouchableHighlight>
+              <TextInput
+                style={styles.input}
+                placeholder="Surname"
+                returnKeyType="next"
+                onSubmitEditing={() => this.phoneNumInput.focus()}
+                ref={(input) => this.surnameInput = input}
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(surname) => this.setState({surname})}
+              />
 
-            <TouchableHighlight
-              //onPress={this._userSignUp}
-              style={styles.saveButton}
-            >
-              <Text style={styles.buttonText} >SAVE</Text>
-            </TouchableHighlight>
+              <TextInput
+                style={styles.input}
+                placeholder="Phone Number"
+                returnKeyType="go"
+                ref={(input) => this.phoneNumInput = input}
+                keyboardType="numeric"
+                blurOnSubmit= {true}
+                multiline= {false}
+                onChangeText={(phoneNum) => this.setState({phoneNum})}
+              />
+
+            <View style= {{paddingBottom: 70, alignSelf: 'stretch'}}>
+              <View style={styles.rowButton}>
+                <TouchableHighlight
+                  onPress={ () => this._goBack() }
+                  style={styles.cancelButton}
+                  multiline= {false}
+                >
+                  <Text style={styles.cancelButtonText} >CANCEL</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                  onPress={ () => this._changeUserData() }
+                  style={styles.saveButton}
+                >
+                  <Text style={styles.buttonText} >SAVE</Text>
+                </TouchableHighlight>
+              </View>
+
+              <TouchableHighlight
+                onPress={ () => this._logout() }
+                style={styles.logoutButton}
+              >
+                <Text style={styles.buttonText} >LOGOUT</Text>
+              </TouchableHighlight>
+            </View>
           </View>
-
-          <TouchableHighlight
-            //onPress={this._userSignUp}
-            style={styles.logoutButton}
-          >
-            <Text style={styles.buttonText} >LOGOUT</Text>
-          </TouchableHighlight>
-
-      </KeyboardAvoidingView>
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -136,22 +185,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  navBarStyle: {
-      backgroundColor: '#006973',
-  },
-  navBarTitle: {
-    color:'#ffff'
+    paddingTop: 20
   },
   input: {
     alignSelf: 'stretch',
@@ -167,19 +201,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   cancelButton: {
-      backgroundColor: '#64b9d1',
-      borderRadius: 8,
+      backgroundColor: 'lightgrey',
+      borderRadius: 5,
       borderWidth: 1,
       borderColor: '#fff',
-      marginLeft: 10,
+      padding: 20,
       marginRight: 5,
+      marginLeft: 10,
       marginBottom: 5,
       marginTop: 5,
-      padding: 20,
+      width: 110
+  },
+  cancelButtonText: {
+    color: '#000',
+    textAlign:'center',
+    fontSize: 16,
   },
   saveButton: {
-      backgroundColor: '#ff8982',
-      borderRadius: 8,
+      backgroundColor: '#64b9d1',
+      borderRadius: 5,
       borderWidth: 1,
       borderColor: '#fff',
       marginRight: 10,
@@ -189,8 +229,8 @@ const styles = StyleSheet.create({
       padding: 20,
   },
   logoutButton: {
-      backgroundColor: '#c5162c',
-      borderRadius: 8,
+      backgroundColor: '#ff5555',
+      borderRadius: 5,
       borderWidth: 1,
       borderColor: '#fff',
       padding: 16,
@@ -210,4 +250,9 @@ const styles = StyleSheet.create({
       textAlign:'center',
       color: '#005662',
   },
+  header: {
+    backgroundColor: '#2c89a0',
+    height: 54,
+    alignSelf: 'stretch'
+  }
 });
