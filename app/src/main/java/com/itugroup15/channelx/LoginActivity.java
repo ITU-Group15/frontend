@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putBoolean("loggedIn", true);
                     editor.putString("authToken", response.body().getContext().getJwtToken());
+                    editor.putInt(getString(R.string.sharedpref_userid),response.body().getContext().getUserID());
                     editor.putString(getString(R.string.sharedpref_email), email.getText().toString());
                     editor.apply();
 

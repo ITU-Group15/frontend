@@ -36,7 +36,8 @@
 
     <!-- Eklediklerim -->
 
-    <string name="sharedpref_email">user_email</string>
+    <string name="sharedpref_email">editor_user_email</string>
+    <string name="sharedpref_userid">editor_user_id</string>
 
     <string name="intent_user_id">intent_user_id</string>
     <string name="intent_channel_id">intent_channel_id</string>

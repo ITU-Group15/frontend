@@ -205,7 +205,8 @@ public class ChannelListActivity extends AppCompatActivity {
                     Date availableTimeStart = inputAvailableDateFormat.parse(channel.getStartTime());
                     Date availableTimeEnd = inputAvailableDateFormat.parse(channel.getEndTime());
 
-                    //Calendar calendar = Calendar.getInstance();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTimeInMillis(availableTimeStart.getTime());
                     //String weekDay = dayFormat.format(calendar.getTime());
 
                 } catch (ParseException e) {
@@ -272,7 +273,7 @@ public class ChannelListActivity extends AppCompatActivity {
                         else {
                             Channel selectedChannel = channels.get(position);
                             startActivityForResult(ChatActivity.getIntent(context, selectedChannel.getChannelID()
-                                    , 0, selectedChannel.getOwnerID()),1);
+                                    ,settings.getInt(getString(R.string.sharedpref_userid), -1) , selectedChannel.getOwnerID()),1);
                         }
                     }
                 });

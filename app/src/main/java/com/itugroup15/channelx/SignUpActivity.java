@@ -23,7 +23,7 @@ import retrofit2.Response;
 
 public class SignUpActivity extends AppCompatActivity {
 
-        APIController apiController;
+    APIController apiController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,5 +99,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public void onCancelButtonClicked(View view) { onBackPressed(); }
+    public void onCancelButtonClicked(View view) {
+        onBackPressed();
+    }
 }
