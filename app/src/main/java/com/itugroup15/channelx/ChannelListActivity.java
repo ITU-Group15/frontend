@@ -26,11 +26,18 @@ import android.widget.TextView;
 
 import com.itugroup15.channelxAPI.APIClient;
 import com.itugroup15.channelxAPI.APIController;
-import com.itugroup15.channelxAPI.model.GetUserResponse;
+import com.itugroup15.channelxAPI.model.Channel;
+import com.itugroup15.channelxAPI.model.GetChannelsResponse;
 import com.itugroup15.channelxAPI.model.User;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +46,7 @@ import retrofit2.Response;
 public class ChannelListActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "appSettings";
+    public static final String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSSS'Z'";
     SharedPreferences settings;
     APIController apiController;
 
@@ -69,10 +77,10 @@ public class ChannelListActivity extends AppCompatActivity {
 
         String authToken = settings.getString("authToken", "");
         apiController = APIClient.getClient().create(APIController.class);
-        Call<GetUserResponse> call = apiController.getUsers(authToken);
-        call.enqueue(new Callback<GetUserResponse>() {
+        Call<GetChannelsResponse> call = apiController.getChannels(authToken);
+        call.enqueue(new Callback<GetChannelsResponse>() {
             @Override
-            public void onResponse(@NonNull Call<GetUserResponse> call, @NonNull Response<GetUserResponse> response) {
+            public void onResponse(@NonNull Call<GetChannelsResponse> call, @NonNull Response<GetChannelsResponse> response) {
                 if(response.body() != null){
                     adapter.swap(response.body().getContext());
                 }
@@ -85,7 +93,7 @@ public class ChannelListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<GetUserResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<GetChannelsResponse> call, @NonNull Throwable t) {
 
             }
         });
@@ -180,13 +188,29 @@ public class ChannelListActivity extends AppCompatActivity {
             }
 
             void update(final int position) {
-                User channel = channels.get(position);
-                if (channel.getUsername() != null)
-                    channelName.setText(channel.getUsername());
+                Channel channel = channels.get(position);
+                if (channel.getChannelName() != null)
+                    channelName.setText(channel.getChannelName());
                 else
                     channelName.setText("");
-                channelInfo.setText(String.valueOf(channel.getUserID()));
 
+                SimpleDateFormat inputDateFormat = new SimpleDateFormat(API_DATE_FORMAT, Locale.getDefault());
+                SimpleDateFormat inputAvailableDateFormat = new SimpleDateFormat("yyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
+                SimpleDateFormat outputDateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+                try {
+                    Date updateDate = inputDateFormat.parse(channel.getUpdatedAt());
+                    channelInfo.setText(outputDateFormat.format(updateDate));
+
+                    Date availableTimeStart = inputAvailableDateFormat.parse(channel.getStartTime());
+                    Date availableTimeEnd = inputAvailableDateFormat.parse(channel.getEndTime());
+
+                    //Calendar calendar = Calendar.getInstance();
+                    //String weekDay = dayFormat.format(calendar.getTime());
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+/*
                 if (channel.getPhone() != null && channel.getPhone().contains("5"))
                     channelStatus.setImageDrawable(getResources().getDrawable(R.drawable.channel_icon_offline));
 
@@ -199,7 +223,7 @@ public class ChannelListActivity extends AppCompatActivity {
                     channelNotificationBadge.setText("1");
                     channelNotificationBadge.setVisibility(View.VISIBLE);
                 }
-
+*/
                 if (selected == position) {
                     channelCardLayout.setBackgroundColor(Color.LTGRAY);
                 } else {
@@ -265,10 +289,10 @@ public class ChannelListActivity extends AppCompatActivity {
             }
         }
 
-        private List<User> channels;
+        private List<Channel> channels;
         private Context context;
 
-        private ChannelAdapter(List<User> channels, Context context) {
+        private ChannelAdapter(List<Channel> channels, Context context) {
             this.channels = channels;
             this.context = context;
         }
@@ -295,7 +319,7 @@ public class ChannelListActivity extends AppCompatActivity {
                 return 0;
         }
 
-        private void swap(List<User> list){
+        private void swap(List<Channel> list){
             if (channels != null) {
                 channels.clear();
                 channels.addAll(list);

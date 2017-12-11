@@ -18,4 +18,7 @@ public interface APIController {
 
     @GET("getusers")
     Call<GetUserResponse> getUsers(@Header("Authorization") String authHeader);
+
+    @GET("channels")
+    Call<GetChannelsResponse> getChannels(@Header("Authorization") String authHeader);
 }
