@@ -51,5 +51,7 @@
 
     <string name="toast_connection_error">Connection Error</string>
 
+    <string name="search_hint">Search for a channel</string>
+
 
 </resources>

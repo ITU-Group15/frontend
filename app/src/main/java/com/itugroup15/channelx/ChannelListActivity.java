@@ -1,5 +1,6 @@
 package com.itugroup15.channelx;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,28 +14,25 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.itugroup15.channelxAPI.APIClient;
 import com.itugroup15.channelxAPI.APIController;
 import com.itugroup15.channelxAPI.model.Channel;
 import com.itugroup15.channelxAPI.model.GetChannelsResponse;
-import com.itugroup15.channelxAPI.model.User;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -53,6 +51,8 @@ public class ChannelListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ChannelAdapter adapter;
+
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +105,13 @@ public class ChannelListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_chat_list_menu, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView =
+                (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
         return true;
     }
 
@@ -116,13 +123,30 @@ public class ChannelListActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putBoolean("loggedIn", false);
                 editor.apply();
-                Intent intent = new Intent(ChannelListActivity.this, LoginActivity.class);
+                final Intent intent = new Intent(ChannelListActivity.this, LoginActivity.class);
                 overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
                 startActivity(intent);
                 finish();
                 return true;
             case R.id.action_search:
                 Snackbar.make(findViewById(R.id.chat_list_layout), "This button will search for a channel", Snackbar.LENGTH_LONG).show();
+
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String s) {
+                        Snackbar.make(findViewById(R.id.chat_list_layout), "yara", Snackbar.LENGTH_LONG).show();
+                        //intent.putExtra("q", searchView.getQuery());
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String s) {
+
+                        return false;
+                    }
+                });
+
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -195,18 +219,40 @@ public class ChannelListActivity extends AppCompatActivity {
                 else
                     channelName.setText("");
 
-                SimpleDateFormat inputDateFormat = new SimpleDateFormat(API_DATE_FORMAT, Locale.getDefault());
-                SimpleDateFormat inputAvailableDateFormat = new SimpleDateFormat("yyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
-                SimpleDateFormat outputDateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+                SimpleDateFormat inputDateFormat = new SimpleDateFormat(API_DATE_FORMAT, Locale.US);
+                SimpleDateFormat inputAvailableDateFormat = new SimpleDateFormat("yyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+                SimpleDateFormat outputDateFormat = new SimpleDateFormat("HH:mm", Locale.US);
+                SimpleDateFormat weekDayFormat = new SimpleDateFormat("EEE", Locale.US);
+
+                Date currentTime = Calendar.getInstance().getTime();
+
+
                 try {
                     Date updateDate = inputDateFormat.parse(channel.getUpdatedAt());
                     channelInfo.setText(outputDateFormat.format(updateDate));
 
                     Date availableTimeStart = inputAvailableDateFormat.parse(channel.getStartTime());
                     Date availableTimeEnd = inputAvailableDateFormat.parse(channel.getEndTime());
+                    String weekDay = weekDayFormat.format(currentTime);
 
-                    //Calendar calendar = Calendar.getInstance();
-                    //String weekDay = dayFormat.format(calendar.getTime());
+                    int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+                    int endMinutes = availableTimeEnd.getHours() * 60 + availableTimeEnd.getMinutes();
+                    int startMinutes = availableTimeStart.getHours() * 60 + availableTimeStart.getMinutes();
+
+                    if (channel.getAvailableDays() == null || channel.getAvailableDays().contains(weekDay)) {
+                        if (currentMinutes < endMinutes && currentMinutes > startMinutes) {
+                            channelCardLayout.setEnabled(true);
+                            channelStatus.setImageDrawable(getResources().getDrawable(R.drawable.channel_icon_online));
+                        }
+                        else {
+                            channelCardLayout.setEnabled(false);
+                            channelStatus.setImageDrawable(getResources().getDrawable(R.drawable.channel_icon_offline));
+                        }
+                    }
+                    else {
+                        channelCardLayout.setEnabled(false);
+                        channelStatus.setImageDrawable(getResources().getDrawable(R.drawable.channel_icon_offline));
+                    }
 
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -271,24 +317,40 @@ public class ChannelListActivity extends AppCompatActivity {
                         }
                         else {
                             Channel selectedChannel = channels.get(position);
-                            startActivityForResult(ChatActivity.getIntent(context, selectedChannel.getChannelID()
-                                    , 0, selectedChannel.getOwnerID()),1);
+
+                            SimpleDateFormat inputAvailableDateFormat = new SimpleDateFormat("yyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+                            SimpleDateFormat weekDayFormat = new SimpleDateFormat("EEE", Locale.US);
+
+                            Date currentTime = Calendar.getInstance().getTime();
+
+
+                            try {
+                                Date availableTimeStart = inputAvailableDateFormat.parse(selectedChannel.getStartTime());
+                                Date availableTimeEnd = inputAvailableDateFormat.parse(selectedChannel.getEndTime());
+                                String weekDay = weekDayFormat.format(currentTime);
+
+                                int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+                                int endMinutes = availableTimeEnd.getHours() * 60 + availableTimeEnd.getMinutes();
+                                int startMinutes = availableTimeStart.getHours() * 60 + availableTimeStart.getMinutes();
+
+                                if (selectedChannel.getAvailableDays() == null || selectedChannel.getAvailableDays().contains(weekDay)) {
+                                    if (currentMinutes < endMinutes && currentMinutes > startMinutes) {
+                                        startActivityForResult(ChatActivity.getIntent(context, selectedChannel.getChannelID()
+                                                , 0, selectedChannel.getOwnerID()),1);
+                                    }
+                                    else {
+                                        Toast.makeText(getApplicationContext(), "Channel offline", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(), "Channel offline", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 });
-
-//                if (multiSelect) {
-//                    if (selectedItems.contains(item)) {
-//                        selectedItems.remove(item);
-//                        channelCardLayout.setBackgroundColor(Color.WHITE);
-//                    } else {
-//                        selectedItems.add(item);
-//                        channelCardLayout.setBackgroundColor(Color.LTGRAY);
-//                    }
-//                }
-//                if (multiSelect &&  actionMode != null && selectedItems.size() != 1) {
-//                    actionMode.invalidate();
-//                }
             }
         }
 
