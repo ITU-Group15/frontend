@@ -3,6 +3,7 @@ package com.itugroup15.channelx;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Path;
 import android.os.Handler;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -10,12 +11,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.itugroup15.channelxAPI.APIClient;
@@ -30,6 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.itugroup15.channelx.ChannelInformationActivity.toLocalHourMin;
 import static com.itugroup15.channelx.LoginActivity.PREFS_NAME;
 
 public class ChatActivity extends AppCompatActivity {
@@ -38,19 +44,16 @@ public class ChatActivity extends AppCompatActivity {
 
     private final Handler handler = new Handler();
 
-    private int user_id; // unused, TODO use to check whether creator
     private int channelID;
     private int userID;
     private int ownerID;
     private String username;
-    private String token;
-
     private APIController apiController;
     private SharedPreferences settings;
     private ChannelAdapter adapter;
     private RecyclerView rv;
-    private View sendButton;
-    private TextInputEditText chatTextInput;
+    private ImageButton sendButton;
+    private EditText chatTextInput;
 
     public static Intent getIntent(Context context, int channelID, int userID, int channeOwnerID){
         Intent intent =new Intent(context, ChatActivity.class);
@@ -67,13 +70,13 @@ public class ChatActivity extends AppCompatActivity {
         settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         username = settings.getString(getString(R.string.sharedpref_email), "");
         channelID = getIntent().getExtras().getInt(getString(R.string.intent_channel_id));
-        user_id = getIntent().getExtras().getInt(getString(R.string.intent_user_id));
+        userID = settings.getInt(getString(R.string.sharedpref_userid), -1);
         ownerID = getIntent().getExtras().getInt(getString(R.string.channel_owner_id));
 
         apiController = APIClient.getClient().create(APIController.class);
 
-        sendButton = (View) findViewById(R.id.sendMessage);
-        sendButton.setBackgroundResource(R.drawable.ic_send);
+        sendButton = (ImageButton) findViewById(R.id.sendMessage);
+        sendButton.setImageResource(R.drawable.ic_send);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -105,9 +108,6 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_chat_action_menu, menu);
-        if(user_id != ownerID) { // if not owner
-            menu.removeItem(R.id.action_edit);
-        }
         return true;
     }
 
@@ -115,11 +115,8 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_edit:
-                // TODO
-                return true;
             case R.id.action_info:
-                // TODO
+                startActivityForResult(ChannelInformationActivity.getIntent(this, channelID), 1);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -182,12 +179,13 @@ public class ChatActivity extends AppCompatActivity {
     private class ChannelAdapter extends RecyclerView.Adapter<ChatActivity.ChannelAdapter.ViewHolder> {
 
     public  class ViewHolder extends RecyclerView.ViewHolder {
-            TextView senderEmail;
+            TextView senderNickname;
             TextView message;
             TextView time;
             public ViewHolder(View itemView) {
                 super(itemView);
-                senderEmail = itemView.findViewById(R.id.chat_list_layout_senderemail);
+                itemView.setLayoutParams(linLayParam());
+                senderNickname = itemView.findViewById(R.id.chat_list_layout_senderemail);
                 message= itemView.findViewById(R.id.chat_list_layout_message);
                 time = itemView.findViewById(R.id.chat_list_layout_time);
             }
@@ -213,20 +211,14 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ChatActivity.ChannelAdapter.ViewHolder holder, int position) {
-            holder.senderEmail.setText(messages.get(position).getNickname()); // User id to user nickname ??
+            holder.senderNickname.setText(messages.get(position).getNickname());
             holder.message.setText(messages.get(position).getMessage());
-            String humenReadableTime = "";
-            String time = messages.get(position).getCreatedAt();
-            int flag = 0;
-            for(int i = 0; i < time.length(); i++){
-                if(flag > 0){
-                    if(flag == 2 && time.charAt(i) == ':') break;
-                    if(time.charAt(i) == ':') flag++;
-                    humenReadableTime += time.charAt(i);
-                }
-                if(time.charAt(i) == 'T') flag = 1;
+            holder.time.setText(toLocalHourMin(messages.get(position).getCreatedAt(),3));
+            if(messages.get(position).getUserID() == userID){
+                LinearLayout.LayoutParams lp = linLayParam();
+                lp.gravity = Gravity.END;
+                holder.itemView.setLayoutParams(lp);
             }
-            holder.time.setText(humenReadableTime); // TODO to human readable time
         }
 
         @Override
@@ -270,6 +262,15 @@ public class ChatActivity extends AppCompatActivity {
         private Context getContext() {
             adapter.notifyDataSetChanged();
             return context;
+        }
+
+        private LinearLayout.LayoutParams linLayParam(){
+            LinearLayout.LayoutParams linearLayoutParam = new LinearLayout.LayoutParams(
+                    getWindowManager().getDefaultDisplay().getWidth() * 4/ 5
+                    , ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearLayoutParam.gravity = Gravity.START;
+            linearLayoutParam.setMargins(0,0,2,4);
+            return linearLayoutParam;
         }
     }
 

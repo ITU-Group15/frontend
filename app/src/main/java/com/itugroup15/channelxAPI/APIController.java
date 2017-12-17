@@ -8,6 +8,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface APIController {
     @POST("login")
@@ -28,7 +29,7 @@ public interface APIController {
     @POST("join")
     Call<GetChannelsResponse> joinChannel(@Header("Authorization") String authHeader, @Body JoinChannel channelID);
 
-    //Burdan Aşağısını ekledim
+
     @POST("send")
     Call<MessageResponse> sendMessage(
              @Header("Authorization") String authHeader
@@ -38,5 +39,34 @@ public interface APIController {
     Call<MessageResponse> getMessages(
             @Header("Authorization") String authHeader
             ,@Body MessageRequest messageRequest);
+
+    @POST("create")
+    Call<ChannelCreateRequest> createChannel(
+            @Header("Authorization") String authHeader
+            ,@Body ChannelCreateRequest channelCreateRequest
+    );
+
+    @GET("channel/{id}")
+    Call<ChannelInfoDeleteRequest> getChannelInfo(
+            @Header("Authorization") String authHeader
+            ,@Path("id") int ChannelID
+    );
+
+    @GET("delete/{id}")
+    Call<ChannelInfoDeleteRequest> deleteChannel(
+            @Header("Authorization") String authHeader
+            ,@Path("id") int ChannelID
+    );
+
+    @GET("/profile")
+    Call<ProfileRequests> getProfile(
+            @Header("Authorization") String authHeader
+    );
+
+    @POST("/changeprofile")
+    Call<ProfileRequests> updateProfile(
+            @Header("Authorization") String authHeader,
+            @Body ProfileRequests profileRequests
+    );
 
 }

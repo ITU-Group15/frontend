@@ -4,7 +4,9 @@
     android:id="@+id/channelCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground" >
@@ -12,7 +14,8 @@
     <RelativeLayout
         android:id="@+id/channelCardLayout"
         android:layout_width="match_parent"
-        android:layout_height="72dp">
+        android:layout_height="wrap_content"
+        android:minHeight="64dp">
 
         <TextView
             android:id="@+id/channelName"
@@ -39,9 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="21dp"
             android:contentDescription="@string/chat_status_desc"
-            app:srcCompat="@drawable/channel_icon_online" />
+            app:srcCompat="@drawable/channel_icon_offline" />
 
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/channelNotificationBadge"

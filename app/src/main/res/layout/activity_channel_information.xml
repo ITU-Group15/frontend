@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChannelInformationActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/channelInfoChannelName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "@dimen/size_info_text"
+                android:layout_marginBottom="@dimen/margin_info_tv"
+                android:layout_marginTop="@dimen/margin_info_tv"/>
+            <TextView
+                android:id="@+id/channelInfoChannelOwnerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "@dimen/size_info_text"
+                android:layout_marginBottom="@dimen/margin_info_tv"
+                android:layout_marginTop="@dimen/margin_info_tv"/>
+            <TextView
+                android:id="@+id/channelInfoAvailableDays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "@dimen/size_info_text"
+                android:layout_marginBottom="@dimen/margin_info_tv"
+                android:layout_marginTop="@dimen/margin_info_tv"/>
+            <TextView
+                android:id="@+id/channelInfoAvailableHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "@dimen/size_info_text"
+                android:layout_marginBottom="@dimen/margin_info_tv"
+                android:layout_marginTop="@dimen/margin_info_tv"/>
+            <TextView
+                android:id="@+id/channelInfoParticipantsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "@dimen/size_info_text"
+                android:layout_marginBottom="@dimen/margin_info_tv"
+                android:layout_marginTop="@dimen/margin_info_tv"/>
+        </RadioGroup>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/channelInfoRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

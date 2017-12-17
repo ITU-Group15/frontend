@@ -9,6 +9,9 @@ public class LoginResponse {
         @SerializedName("jwtToken")
         @Expose
         private String jwtToken;
+        @SerializedName("userID")
+        @Expose
+        private int userID;
 
         public String getJwtToken() {
             return jwtToken;
@@ -16,6 +19,15 @@ public class LoginResponse {
 
         public void setJwtToken(String jwtToken) {
             this.jwtToken = jwtToken;
+        }
+
+        public void setUserID(int userID) {
+            this.userID = userID;
+        }
+
+        public int getUserID() {
+
+            return userID;
         }
 
     }

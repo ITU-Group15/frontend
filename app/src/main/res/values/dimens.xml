@@ -1,5 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="size_info_text">16sp</dimen>
+    <dimen name="size_profile_h1">36sp</dimen>
+    <dimen name="size_profile_h2">16sp</dimen>
+    <dimen name="margin_info_tv">6dp</dimen>
     <item name="visible" type="id"/>
     <item name="masked" type="id"/>
 </resources>

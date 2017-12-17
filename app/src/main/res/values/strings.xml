@@ -9,8 +9,10 @@
     <string name="login_button">Login</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
     <string name="forgot_password_button">Forgot Password</string>
     <string name="send_button">Send</string>
+    <string name="create_button">Create</string>
 
     <string name="password_input_hint">Password</string>
     <string name="email_input_hint">Email</string>
@@ -26,9 +28,9 @@
 
 
     <string name="app_bar_search">Search</string>
-    <string name="app_bar_account">Logout</string>
+    <string name="app_bar_account">Account</string>
 
-    <string name="action_item_info">Info</string>
+    <string name="action_item_delete">Delete</string>
     <string name="app_bar_search_string">Search</string>
     <string name="app_bar_edit_string">Edit</string>
     <string name="app_bar_info_string">Info</string>
@@ -37,6 +39,7 @@
     <!-- Eklediklerim -->
 
     <string name="sharedpref_email">user_email</string>
+    <string name="sharedpref_userid">sharedpref_user_id</string>
 
     <string name="intent_user_id">intent_user_id</string>
     <string name="intent_channel_id">intent_channel_id</string>
@@ -52,6 +55,7 @@
     <string name="toast_connection_error">Connection Error</string>
 
     <string name="search_hint">Search for a channel</string>
+    <string name="channel_name_hint">Channel Name</string>
 
 
 </resources>

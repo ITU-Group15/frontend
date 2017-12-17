@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.itugroup15.channelxAPI.APIClient;
 import com.itugroup15.channelxAPI.APIController;
 import com.itugroup15.channelxAPI.model.Channel;
+import com.itugroup15.channelxAPI.model.ChannelInfoDeleteRequest;
 import com.itugroup15.channelxAPI.model.GetChannelsResponse;
 
 import java.text.ParseException;
@@ -42,17 +43,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.itugroup15.channelx.TimePickerFragmentDialog.properTime;
+
 public class ChannelListActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "appSettings";
     public static final String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSSS'Z'";
-    SharedPreferences settings;
-    APIController apiController;
 
-    RecyclerView recyclerView;
-    ChannelAdapter adapter;
+    private String authToken;
+    private SharedPreferences settings;
+    private APIController apiController;
 
-    SearchView searchView;
+    private RecyclerView recyclerView;
+    private ChannelAdapter adapter;
+
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +77,78 @@ public class ChannelListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "This button will add new channel", Snackbar.LENGTH_LONG).show();
+                startActivity(CreateChannel.getIntent(recyclerView.getContext()));
             }
         });
 
-        String authToken = settings.getString("authToken", "");
+        authToken = settings.getString("authToken", "");
         apiController = APIClient.getClient().create(APIController.class);
+    }
+
+    /* Show options on toolbar */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_chat_list_menu, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView =
+                (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+        return true;
+    }
+
+    /* Handle the selections in options menu */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("loggedIn", false);
+                editor.apply();
+                final Intent intent = new Intent(ChannelListActivity.this, LoginActivity.class);
+                overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.action_search:
+                searchView.setFocusable(true);
+                searchView.setIconified(false);
+                searchView.requestFocusFromTouch();
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String s) {
+                        //nackbar.make(findViewById(R.id.chat_list_layout), "yara", Snackbar.LENGTH_LONG).show();
+                        //intent.putExtra("q", searchView.getQuery());
+                        Intent intent1 = new Intent(ChannelListActivity.this, SearchResultsActivity.class);
+                        intent1.putExtra("query", searchView.getQuery().toString());
+                        startActivity(intent1);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String s) {
+
+                        return false;
+                    }
+                });
+            case R.id.action_account:
+                startActivityForResult(ProfileActivity.getIntent(this),1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateChannels();
+    }
+
+    private void updateChannels(){
         Call<GetChannelsResponse> call = apiController.getChannels(authToken);
         call.enqueue(new Callback<GetChannelsResponse>() {
             @Override
@@ -100,69 +171,11 @@ public class ChannelListActivity extends AppCompatActivity {
         });
     }
 
-    /* Show options on toolbar */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_chat_list_menu, menu);
-
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView =
-                (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-        return true;
-    }
-
-    /* Handle the selections in options menu */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_account:
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putBoolean("loggedIn", false);
-                editor.apply();
-                final Intent intent = new Intent(ChannelListActivity.this, LoginActivity.class);
-                overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
-                startActivity(intent);
-                finish();
-                return true;
-            case R.id.action_search:
-                searchView.setFocusable(true);
-                searchView.setIconified(false);
-                searchView.requestFocusFromTouch();
-
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String s) {
-                        //nackbar.make(findViewById(R.id.chat_list_layout), "yara", Snackbar.LENGTH_LONG).show();
-                        //intent.putExtra("q", searchView.getQuery());
-                        Intent intent1 = new Intent(ChannelListActivity.this, SearchResultsActivity.class);
-                        intent1.putExtra("query", searchView.getQuery().toString());
-                        startActivity(intent1);
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String s) {
-
-                        return false;
-                    }
-                });
-
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /* Channel adapter to recycler view */
     public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ViewHolder> {
 
         private int selected = -1;
         private ActionMode actionMode = null;
+        private boolean onProcess = false;
 
         class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -191,9 +204,43 @@ public class ChannelListActivity extends AppCompatActivity {
                 @Override
                 public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                     switch (item.getItemId()) {
-                        case R.id.action_info:
-                            Snackbar.make(findViewById(R.id.chat_list_layout), "This button will show info", Snackbar.LENGTH_LONG).show();
-                            mode.finish(); // Action picked, so close the CAB
+                        case R.id.action_delete:
+                            if(selected == -1){
+                                mode.finish();
+                                return true;
+                            }
+                            Call<ChannelInfoDeleteRequest> call = apiController
+                                    .deleteChannel(authToken,channels.get(selected).getChannelID());
+                            onProcess = true;
+                            call.enqueue(new Callback<ChannelInfoDeleteRequest>() {
+                                @Override
+                                public void onResponse(@NonNull Call<ChannelInfoDeleteRequest> call
+                                        , @NonNull Response<ChannelInfoDeleteRequest> response) {
+                                    if(response.body() != null && response.body().getCode() == 0){
+                                        adapter.remove(selected);
+                                        Snackbar.make(findViewById(R.id.chat_list_layout)
+                                                , "Channel Deleted", Snackbar.LENGTH_LONG).show();
+                                        onProcess = false;
+                                        selected = -1;
+                                    }
+                                    else {
+                                        Snackbar.make(findViewById(R.id.chat_list_layout)
+                                                , "Something went wrong", Snackbar.LENGTH_LONG)
+                                                .show();
+                                        onProcess = false;
+                                        selected = -1;
+                                    }
+                                }
+                                @Override
+                                public void onFailure(@NonNull Call<ChannelInfoDeleteRequest> call
+                                        , @NonNull Throwable t) {
+                                    Snackbar.make(findViewById(R.id.chat_list_layout)
+                                            , "Connection Error", Snackbar.LENGTH_LONG).show();
+                                    onProcess = false;
+                                    selected = -1;
+                                }
+                            });
+                            mode.finish();
                             return true;
                         default:
                             return false;
@@ -202,10 +249,12 @@ public class ChannelListActivity extends AppCompatActivity {
 
                 @Override
                 public void onDestroyActionMode(ActionMode mode) {
+                    if(!onProcess)
+                        selected = -1;
                     actionMode = null;
-                    selected = -1;
                     notifyDataSetChanged();
                 }
+
             };
 
             private ViewHolder(View itemView) {
@@ -234,15 +283,20 @@ public class ChannelListActivity extends AppCompatActivity {
 
                 try {
                     Date updateDate = inputDateFormat.parse(channel.getUpdatedAt());
-                    channelInfo.setText(outputDateFormat.format(updateDate));
+                    int lastUpdatedhour =(updateDate.getHours() + 3 )%24;
+                    int lastUpdatedMin =(updateDate.getMinutes())%60;
+
+                    channelInfo.setText(properTime(lastUpdatedhour, lastUpdatedMin));
 
                     Date availableTimeStart = inputAvailableDateFormat.parse(channel.getStartTime());
                     Date availableTimeEnd = inputAvailableDateFormat.parse(channel.getEndTime());
                     String weekDay = weekDayFormat.format(currentTime);
 
                     int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
-                    int endMinutes = (availableTimeEnd.getHours() + 3 ) * 60 + availableTimeEnd.getMinutes();
-                    int startMinutes = (availableTimeStart.getHours() + 3 ) * 60 + availableTimeStart.getMinutes();
+                    int endMinutes = (availableTimeEnd.getHours()) * 60 + availableTimeEnd.getMinutes();
+                    int startMinutes = (availableTimeStart.getHours()) * 60 + availableTimeStart.getMinutes();
+                    endMinutes = (endMinutes + 60*3) % (60*24);
+                    startMinutes = (startMinutes + 60*3) % (60*24);
 
                     if (channel.getAvailableDays() == null || channel.getAvailableDays().contains(weekDay)) {
                         if (currentMinutes < endMinutes && currentMinutes > startMinutes) {
@@ -335,9 +389,10 @@ public class ChannelListActivity extends AppCompatActivity {
                                 String weekDay = weekDayFormat.format(currentTime);
 
                                 int currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
-                                int endMinutes = (availableTimeEnd.getHours() + 3 ) * 60 + availableTimeEnd.getMinutes();
-                                int startMinutes = (availableTimeStart.getHours() + 3 ) * 60 + availableTimeStart.getMinutes();
-
+                                int endMinutes = (availableTimeEnd.getHours()) * 60 + availableTimeEnd.getMinutes();
+                                int startMinutes = (availableTimeStart.getHours()) * 60 + availableTimeStart.getMinutes();
+                                endMinutes = (endMinutes + 60*3) % (60*24);
+                                startMinutes = (startMinutes + 60*3) % (60*24);
                                 if (selectedChannel.getAvailableDays() == null || selectedChannel.getAvailableDays().contains(weekDay)) {
                                     if (currentMinutes < endMinutes && currentMinutes > startMinutes) {
                                         startActivityForResult(ChatActivity.getIntent(context, selectedChannel.getChannelID()
@@ -367,12 +422,16 @@ public class ChannelListActivity extends AppCompatActivity {
             this.context = context;
         }
 
+        private void remove(int position){
+            channels.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, channels.size());
+        }
+
         @Override
         public ChannelAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             View contactView = inflater.inflate(R.layout.channel_list_row_layout, parent, false);
-
             return new ViewHolder(contactView);
         }
 

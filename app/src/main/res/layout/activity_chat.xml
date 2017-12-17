@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.itugroup15.channelx.ChatActivity">
+    tools:context="com.itugroup15.channelx.ChatActivity"
+    android:backgroundTint="#ECEFF1">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -45,7 +46,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="bottom"
@@ -55,23 +56,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/chatTextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.88">
 
-            <android.support.design.widget.TextInputEditText
+            <EditText
             android:id="@+id/chatTextInputET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.88"
+            android:hint="Type here"
             android:inputType="textMultiLine"
+            android:gravity="top|left"
+            android:scrollbars="vertical"
             android:text="" />
 
-        </android.support.design.widget.TextInputLayout>
-
-        <View
+        <ImageButton
             android:id="@+id/sendMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
@@ -79,8 +79,6 @@
             android:onClick="sendMessage"
             android:background="?attr/selectableItemBackground"
             android:foreground="?android:selectableItemBackground"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="0.12"
             android:contentDescription="@string/chat_status_desc"
             android:focusable="true" />

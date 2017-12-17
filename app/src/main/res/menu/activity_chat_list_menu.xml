@@ -8,10 +8,14 @@
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="android.widget.SearchView" />
 
-
     <item android:id="@+id/action_account"
         android:icon="@drawable/ic_account_circle_white_24dp"
         android:title="@string/app_bar_account"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_logout"
+        android:icon="@drawable/ic_logout_black_24dp"
+        android:title="@string/app_bar_log_off_string"
+        app:showAsAction="collapseActionView"/>
 
 </menu>

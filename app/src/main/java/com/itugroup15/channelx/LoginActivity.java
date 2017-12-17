@@ -90,10 +90,10 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("loggedIn", true);
                     editor.putString("authToken", response.body().getContext().getJwtToken());
                     editor.putString(getString(R.string.sharedpref_email), email.getText().toString());
+                    editor.putInt(getString(R.string.sharedpref_userid), response.body().getContext().getUserID());
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), ChannelListActivity.class);
-                    intent.putExtra(getString(R.string.sharedpref_email), login.getUsername());
                     overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.slide_out_right);
                     startActivity(intent);
                     finish();

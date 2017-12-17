@@ -2,13 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_edit"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:title="@string/app_bar_edit_string"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/action_info"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/ic_info_white_24dp"
         android:title="@string/app_bar_info_string"
         app:showAsAction="ifRoom"/>
 
